@@ -30,10 +30,14 @@ def FlaskData(): #startPage, pageCount, address): # 요청 받음
     dataURL += "&serviceKey=" + keyValue
     
     # http://api.odcloud.kr/api/apnmOrg/v1/list?page=1&perPage=10&cond%5BorgZipaddr%3A%3ALIKE%5D=%EC%84%B1%EB%B6%81%EA%B5%AC&serviceKey=Kfmb8V7kr4%2F2NQMjEhJR%2BzKjZHBL6rGCk2oLifgAOsamsyHp9WKyHh6UjRJoeT23cIHDuCWfMUxnHeAF1Qrhsw%3D%3D
-    
+    #디버깅 결과:
+    # http://api.odcloud.kr/api/apnmOrg/v1/list?page=1&perPage=10&cond%5BorgZipaddr%3A%3ALIKE%5D=%EC%84%B1%EB%B6%81%EA%B5%AC&serviceKey=Kfmb8V7kr4%2F2NQMjEhJR%2BzKjZHBL6rGCk2oLifgAOsamsyHp9WKyHh6UjRJoeT23cIHDuCWfMUxnHeAF1Qrhsw%3D%3D'
     # http://api.odcloud.kr/api/apnmOrg/v1/list?page=1&perPage=10&cond%5BorgZipaddr%3A%3ALIKE%5D=%EC%84%B1%EB%B6%81%EA%B5%AC&serviceKey=Kfmb8V7kr4%2F2NQMjEhJR%2BzKjZHBL6rGCk2oLifgAOsamsyHp9WKyHh6UjRJoeT23cIHDuCWfMUxnHeAF1Qrhsw%3D%3D
-    dataResult = requests.get(dataURL)
+    
+    dataResult = requests.get(dataURL) # <Response [200]>
     #공공데이터 요청 후 데이터 받기 : flask - request / requests 기능 사용"
 
-    result = json.loads(dataResult)
-    return result # 공공데이터 결과 값 응답
+    # 디버깅 갑자기 사라짐....
+    
+    #return (str)(json.loads(dataResult)) # 공공데이터 결과 값 응답
+    return json.loads(dataResult)
